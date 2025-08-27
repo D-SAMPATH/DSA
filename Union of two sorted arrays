@@ -1,0 +1,7 @@
+class Solution:
+    def unionArray(self, nums1, nums2):
+        s = set(nums1)
+        ss= set(nums2)
+        x=s.union(ss)
+        sx=sorted(x)
+        return sx
