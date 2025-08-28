@@ -1,0 +1,18 @@
+class Solution:
+    def fourSum(self, nums, target):
+        n= len(nums)
+        triplet_set = set()
+        for i in range(n):
+            for j in range(i+1,n):
+                hashset = set()
+                for k in range(j+1,n):
+                        sum_val = nums[i] + nums[j] + nums[k]
+                        fourth = target - sum_val
+                        if fourth in hashset:
+                            temp = [nums[i], nums[j] , nums[k] ,fourth]
+                            temp.sort()
+                            triplet_set.add(tuple(temp))
+                        hashset.add(nums[k])
+        ans = [list(i) for i in triplet_set]
+        return ans
+        
