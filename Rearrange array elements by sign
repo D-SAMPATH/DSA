@@ -1,0 +1,32 @@
+class Solution:
+    def rearrangeArray(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        ans = [0] * n  
+        posIndex, negIndex = 0, 1  
+        for i in range(n):
+            if nums[i] < 0:
+                ans[negIndex] = nums[i]
+                negIndex += 2
+            else:
+                ans[posIndex] = nums[i]
+                posIndex += 2
+        return ans
+
+
+
+//This is another 
+
+    def rearrangeArray(self, nums):
+        pos = []
+        neg = []
+        new = []
+        for i in nums:
+            if i > 0:
+                pos.append(i)
+            else:
+                neg.append(i)
+        for i in range(len(pos)):
+            new.append(pos[i])
+            new.append(neg[i])
+
+        return new
