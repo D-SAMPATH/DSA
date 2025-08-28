@@ -1,0 +1,13 @@
+class Solution:
+    def leaders(self, nums):
+        ans=[]
+        if not nums:
+            return nums
+        max_val = nums[-1]
+        ans.append(nums[-1])
+        for i in range(len(nums)-2,-1,-1):
+            if nums[i] > max_val:
+                ans.append(nums[i])
+                max_val = nums[i]
+        ans.reverse()
+        return ans
