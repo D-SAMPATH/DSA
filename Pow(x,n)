@@ -1,0 +1,4 @@
+class Solution:    
+    def myPow(self, x, n):
+        y = pow(x,n)
+        return y
