@@ -1,0 +1,38 @@
+class ListNode:
+    def __init__(self, data1=0, next1=None, prev1=None):
+        self.val = data1
+        self.next = next1
+        self.prev = prev1
+
+class Solution:
+    def insertBeforeKthPosition(self, head, X, K):
+        if K == 1:
+            newHead = ListNode(X, head, None)
+            head.prev = newHead
+            return newHead
+        temp = head
+        count = 0
+        while temp is not None:
+            count += 1
+            if count == K:
+                break
+            temp = temp.next
+        prev = temp.prev
+        newNode = ListNode(X, temp, prev)
+        prev.next = newNode
+        temp.prev = newNode
+        return head
+
+def build_list(arr):
+    head = None
+    trav = None
+    for val in arr:
+        temp = ListNode(val)
+        if head is None:
+            head = temp
+            trav = temp
+        else:
+            trav.next = temp
+            temp.prev = trav
+            trav = trav.next
+    return head
