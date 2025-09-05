@@ -1,0 +1,35 @@
+class ListNode:
+    def __init__(self, data1=0, next1=None, prev1=None):
+        self.val = data1
+        self.next = next1
+        self.prev = prev1
+
+class Solution:
+    def deleteGivenNode(self, node):
+        prev = node.prev
+        front = node.next
+
+        if front is None:
+            prev.next = None
+            node.prev = None
+            return
+
+        prev.next = front
+        front.prev = prev
+
+        node.next = None
+        node.prev = None
+
+def build_list(arr):
+    head = None
+    trav = None
+    for val in arr:
+        temp = ListNode(val)
+        if head is None:
+            head = temp
+            trav = temp
+        else:
+            trav.next = temp
+            temp.prev = trav
+            trav = trav.next
+    return head
