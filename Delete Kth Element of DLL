@@ -1,0 +1,40 @@
+class Solution:
+    def deleteKthElement(self, head, k):
+        if head is None:
+            return None
+        count = 0
+        kNode = head
+        while kNode is not None:
+            count += 1
+            if count == k:
+                break
+            kNode = kNode.next
+        if kNode is None:
+            return head
+        prev = kNode.prev
+        front = kNode.next
+        if prev is None and front is None:
+            return None
+        elif prev is None:
+            head = front
+            front.prev = None
+        elif front is None:
+            prev.next = None
+        else:
+            prev.next = front
+            front.prev = prev
+        return head
+
+def build_list(arr):
+    head = None
+    trav = None
+    for val in arr:
+        temp = ListNode(val)
+        if head is None:
+            head = temp
+            trav = temp
+        else:
+            trav.next = temp
+            temp.prev = trav
+            trav = trav.next
+    return head
