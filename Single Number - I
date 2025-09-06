@@ -1,0 +1,6 @@
+class Solution:
+    def singleNumber(self, nums):
+        ele = 0
+        for i in range(len(nums)):
+            ele ^=nums[i]
+        return ele
