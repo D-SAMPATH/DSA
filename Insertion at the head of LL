@@ -1,0 +1,24 @@
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def insertAtHead(self, head, X):
+        newnode = ListNode(X)
+        newnode.next = head
+        head = newnode
+        return head
+
+def build_list(arr):
+    head = None
+    trav = None
+    for val in arr:
+        temp = ListNode(val)
+        if head is None:
+            head = temp
+            trav = temp
+        else:
+            trav.next = temp
+            trav = trav.next
+    return head
