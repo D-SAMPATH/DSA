@@ -1,0 +1,27 @@
+class ListNode:
+    def __init__(self , val , next = None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def LLTraversal(self, head: ListNode) -> list:
+        temp = head
+        ans=[]
+        while temp is not None :
+            ans.append(temp.val)
+            temp = temp.next
+        return ans
+
+
+def build_list(arr):
+    head = None
+    trav = None
+    for val in arr:
+        temp = ListNode(val)
+        if head is None:
+            head = temp
+            trav = temp
+        else:
+            trav.next = temp
+            trav = trav.next
+    return head
