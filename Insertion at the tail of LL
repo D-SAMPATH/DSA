@@ -1,0 +1,23 @@
+class Solution:
+    def insertAtTail(self, head, X):
+        if head is None:
+            return ListNode(X)
+        temp = head
+        while temp.next is not None:
+            temp = temp.next
+        newNode = ListNode(X)
+        temp.next = newNode
+        return head
+
+def build_list(arr):
+    head = None
+    trav = None
+    for val in arr:
+        temp = ListNode(val)
+        if head is None:
+            head = temp
+            trav = temp
+        else:
+            trav.next = temp
+            trav = trav.next
+    return head
