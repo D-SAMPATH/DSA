@@ -1,0 +1,37 @@
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def deleteNodeWithValueX(self, head, X):
+        if head is None:
+            return head
+        if head.val == X:
+            head = head.next
+            return head
+        
+        temp = head
+        prev = None
+
+        while temp is not None:
+            if temp.val == X:
+                prev.next = temp.next
+                return head
+            prev = temp
+            temp = temp.next
+        
+        return head
+
+def build_list(arr):
+    head = None
+    trav = None
+    for val in arr:
+        temp = ListNode(val)
+        if head is None:
+            head = temp
+            trav = temp
+        else:
+            trav.next = temp
+            trav = trav.next
+    return head
