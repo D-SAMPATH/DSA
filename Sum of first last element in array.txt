@@ -1,0 +1,7 @@
+class Solution:
+    def sumOfFirstAndLast(self, nums):
+        if not nums:
+            return 0 
+        first = nums[0]
+        last = nums[-1]
+        return first + last
