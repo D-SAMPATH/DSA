@@ -1,0 +1,22 @@
+class Solution:
+    def linearSearch(self, nums, num):
+        n = len(nums)
+        for i in range(n):
+            if nums[i] == num:
+                return True
+        return False
+
+    def longestConsecutive(self, nums):
+        if len(nums) == 0:
+            return 0
+        n = len(nums)
+        longest = 1
+
+        for i in range(n):
+            x = nums[i]
+            cnt = 1
+            while self.linearSearch(nums, x + 1):
+                x += 1
+                cnt += 1
+            longest = max(longest, cnt)
+        return longest
