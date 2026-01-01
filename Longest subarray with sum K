@@ -1,0 +1,15 @@
+class Solution:
+    def longestSubarray(self, nums, k):
+        n = len(nums) 
+        maxLength = 0
+
+        for startIndex in range(n):
+            for endIndex in range(startIndex, n):
+                currentSum = 0
+                for i in range(startIndex, endIndex + 1):
+                    currentSum += nums[i]
+
+                if currentSum == k:
+                    maxLength = max(maxLength, endIndex - startIndex + 1)
+
+        return maxLength
