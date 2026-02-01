@@ -1,0 +1,16 @@
+class Solution:
+    def selectionSort(self, nums):
+        for i in range(len(nums)):
+            mins = nums[i]
+            for j in range(i+1,len(nums)):
+                if mins > nums[j]:
+                    mins = nums[j]
+                    nums[i] , nums[j] = nums[j] , nums[i]
+        return nums
+
+
+
+
+
+
+
