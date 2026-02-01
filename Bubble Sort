@@ -1,0 +1,8 @@
+class Solution:
+    def bubbleSort(self , nums):
+        le = len(nums)
+        for i in range(le):
+            for j in range(i+1,le):
+                if nums[i] > nums[j]:
+                    nums[i] , nums[j] = nums[j] , nums[i]
+        return nums
