@@ -1,0 +1,13 @@
+class Solution :
+    def secondLargestElement(self ,nums):
+        if len(nums) < 2:
+            return -1
+        high = low = float('-inf')
+        for i in range(len(nums)):
+            if nums[i] > high :
+                low = high
+                high = nums[i]
+            elif high > nums[i] >low:
+                low = nums[i]
+        return low if low != float('-inf') else -1
+
