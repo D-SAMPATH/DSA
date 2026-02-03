@@ -1,7 +1,0 @@
-class Solution:
-    def secondLargestElement(self, nums):
-        s=set(nums)
-        so=sorted(s)
-        if len(so)> 1:
-            return so[-2]
-        return -1
