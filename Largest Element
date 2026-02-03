@@ -1,0 +1,7 @@
+class Solution :
+    def largestElement(self,nums):
+        largest = nums[0]
+        for i in nums:
+            if largest < i :
+                largest = i
+        return largest 
