@@ -1,0 +1,9 @@
+class Solution:
+    def unionArray(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        s = set()
+        for num in nums1:
+            s.add(num)
+        for nums in nums2:
+            s.add(nums)
+        union = list(sorted(s))
+        return union
