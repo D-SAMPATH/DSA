@@ -1,7 +1,0 @@
-class Solution:
-    def removeDuplicates(self, nums):
-        s=set(nums)
-        sorted_u= sorted(s)
-        for i in range(len(sorted_u)):
-            nums[i] = sorted_u[i]
-        return len(sorted_u)
